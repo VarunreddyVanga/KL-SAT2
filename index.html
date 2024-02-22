@@ -11,16 +11,17 @@
             
                 <img src="images/kllogo.png" class="logo">
                 <nav>
-                    <ul>
+                    <ul id="menuList">
                         <li><a href="">Home</a></li>
                         <li><a href="">🔴<strong>LIVE</strong></a></li>
                         <li><a href="">Our Team</a></li>
                         <li><a href="">About</a></li>
                     </ul>
                 </nav>
-                <img src="images/menu.png" class="menu-icon">
+                <img src="images/menu.png" class="menu-icon" onclick="togglemenu()">
             </div>
-            <section id="wrapper--hero" class="section--page">
+            <section>
+                <div  id="wrapper--hero" class="section--page">
             <div class="col-1">
                 <h2>KL SAT - 2</h2>
                 <h3>Satellite Launching LIVE</h3>
@@ -33,7 +34,28 @@
                 <div class="color-box"></div>
                 </div>
             </div>
-            </section>
         </div>
+            </section>
+            <div class="social-links">
+                <img src="images/fb.png">
+                <img src="images/tw.png">
+                <img src="images/ig.png">
+            </div>
+        </div>
+        <script>
+            var menuList = document.getElementById("menuList");
+
+            menuList.style.maxHeight = "0px";
+
+            function togglemenu(){
+                if(menuList.style.maxHeight == "0px")
+                {
+                    menuList.style.maxHeight = "130px"
+                }
+                else{
+                    menuList.style.maxHeight = "0px"
+                }
+            }
+        </script>
     </body>
 </html>

@@ -24,6 +24,7 @@
 .menu-icon{
     width:35px;
     cursor:pointer;
+    display: none;
 }
 nav{
     flex: 1;
@@ -45,7 +46,7 @@ nav ul li a:hover{
     color: #ff5ea2;
 }
 #wrapper--hero{
-    display: flex;
+    display:inline-flex
 }
 .row{
     display: flex;
@@ -57,6 +58,7 @@ nav ul li a:hover{
 .col-1{
     flex-basis: 40%;
     position: relative;
+    margin-top: 50px;
     margin-left: 50px;
 }
 
@@ -75,7 +77,7 @@ nav ul li a:hover{
     font-weight: 100;
 }
 .col-1 h4{
-    margin: 65px 0;
+    margin: 60px 0;
     font-size: 20px;
 }
 button{
@@ -117,7 +119,7 @@ button:hover{
     align-items: center;
 }
 .col-2 .controller{
-    width: 70%;
+    width: 60%;
 }
 .color-box{
     position:absolute;
@@ -126,7 +128,60 @@ button:hover{
     background: linear-gradient(#ff54a2, #ff575a);
     border-radius: 20px 0 0 20px;
     height: 100%;
-    width: 80%;
+    width: 90%;
     z-index: -1;
     transform: translateX(150px);
+}
+.social-links img{
+    height: 13px;
+    margin: 20px;
+    cursor: pointer;
+}
+.social-links img{
+    height: 13px;
+    margin: 20px;
+    cursor: pointer;
+}
+.social-links{
+    text-align: center;
+}
+@media only screen and (max-width:700px){
+    nav ul{
+        width: 100%;
+        background: linear-gradient(#ff54a2, #ff575a);
+        position:absolute;
+        top: 75px;
+        right: 0;
+        z-index: 2;
+    }
+    nav ul li{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li a{
+        color: #fff;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menuList{
+        overflow: hidden;
+        transition: 0.5s;
+    }
+    .row{
+        flex-direction: column-reverse;
+        margin: 50px 0;
+    }
+    .col-2{
+        display: flex;
+        flex-basis: 100%;
+        margin-bottom: 50px;
+    }
+    .col-2 .controller{
+        width: 120%;
+    }
+    .color-box{
+
+    }
 }
