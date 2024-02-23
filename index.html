@@ -1,61 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KL-SAT</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="navbar">
-            
-                <img src="images/kllogo.png" class="logo">
-                <nav>
-                    <ul id="menuList">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">🔴<strong>LIVE</strong></a></li>
-                        <li><a href="">Our Team</a></li>
-                        <li><a href="">About</a></li>
-                    </ul>
-                </nav>
-                <img src="images/menu.png" class="menu-icon" onclick="togglemenu()">
-            </div>
-            <section>
-                <div  id="wrapper--hero" class="section--page">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Station Website | Code Mentor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="images/KL-SAT.jpg" class="logo">
+            <nav>
+                <ul id="menuList">
+                    <li><a href="">Home</a></li>
+                    <li><a href=""><strong>🔴LIVE</strong></a></li>
+                    <li><a href="">Our Team</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </nav>
+            <img src="images/menu.png" class="menu-icon" onclick="togglemenu()">
+        </div>
+
+
+        <div class="row">
             <div class="col-1">
-                <h2>KL SAT - 2</h2>
-                <h3>Satellite Launching LIVE</h3>
-                <p>KLEF Deemed to be University</p>
-                <h4>Team KL-SAT</h4>
-                <button type="button">🔴<strong>GO LIVE</strong><img src="images/arrow.png"></button>
+                <h2>KL - SAT<br> (SAT -2 LIVE)</h2>
+                <h3>Live Launch from KL Univeristy </h3>
+                <p>KL Deemed to be University</p>
+                <h4>TEAM KL-SAT</h4>
+                <button type="button">🔴GO LIVE <img src="images/arrow.png" alt=""></button>
             </div>
             <div class="col-2">
-                <img src="images/logo.jpg" class="controller"> 
+                <img src="images/controller.png" class="controller">
                 <div class="color-box"></div>
+                <div class="add-btn">
+                    <img src="images/add.png" alt="">
+                    <p><small>Add To Cart</small></p>
                 </div>
             </div>
         </div>
-            </section>
-            <div class="social-links">
-                <img src="images/fb.png">
-                <img src="images/tw.png">
-                <img src="images/ig.png">
-            </div>
+
+        <div class="social-links">
+            <img src="images/fb.png" alt="">
+            <img src="images/tw.png" alt="">
+            <img src="images/ig.png" alt="">
         </div>
-        <script>
-            var menuList = document.getElementById("menuList");
 
-            menuList.style.maxHeight = "0px";
+    </div>
 
-            function togglemenu(){
-                if(menuList.style.maxHeight == "0px")
-                {
-                    menuList.style.maxHeight = "130px"
-                }
-                else{
-                    menuList.style.maxHeight = "0px"
-                }
+    <script>
+        var menuList = document.getElementById("menuList");
+
+        menuList.style.maxHeight = "0px";
+
+        function togglemenu() {
+            if (menuList.style.maxHeight == "0px") {
+                menuList.style.maxHeight = "130px";
+            } else {
+                menuList.style.maxHeight = "0px";
             }
-        </script>
-    </body>
+        }
+
+    </script>
+</body>
+
 </html>
