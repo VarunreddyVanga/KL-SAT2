@@ -24,7 +24,7 @@ body
     gap: 100px 50px;
     padding: 100px 50px;
 }
-.container .card
+.contain .card
 {
     position: relative;
     display: flex;
@@ -37,11 +37,11 @@ body
     box-shadow: 0 35px 80px rgba(0,0,0,0,15);
     transition: 0.5s;
 }
-.container .card:hover
+.contain .card:hover
 {
     height: 400px;
 }
-.container .card .imgBx
+.contain .card .imgBx
 {
     position :absolute;
     top: 20px;
@@ -52,13 +52,13 @@ body
     overflow: hidden;
     transition: 0.5s;
 }
-.container .card:hover .imgBx
+.contain .card:hover .imgBx
 {
     top: -100px;
     scale: 0.75;
     box-shadow: 0 15px 45px rgba(0,0,0,0,2);
 }
-.container .card .imgBx img
+.contain .card .imgBx img
 {
     position: absolute;
     top: 0;
@@ -67,7 +67,7 @@ body
     height: 100%;
     object-fit: cover;
 }
-.container .card .content
+.contain .card .content
 {
     position: absolute;
     top: 250px;
@@ -78,22 +78,22 @@ body
     text-align: center;
     transition: 0.5s;
 }
-.container .card:hover .content
+.contain .card:hover .content
 {
     top: 130px;
     height: 250px;
 }
-.container .card .content h2
+.contain .card .content h2
 {
     font-size: 1.5em;
     font-weight: 700;
     color: var(--clr);
 }
-.container .card .content p
+.contain .card .content p
 {
     color: #333;
 }
-.container .card .content .card{
+.contain .card .content .card{
     position: relative;
     top: 15px;
     display: inline-block;
