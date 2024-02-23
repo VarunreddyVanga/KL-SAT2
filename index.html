@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Station Website | Code Mentor</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KL-SAT | LAUNCH</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="about.css">
 </head>
 
 <body>
@@ -15,9 +16,9 @@
             <nav>
                 <ul id="menuList">
                     <li><a href="">Home</a></li>
-                    <li><a href=""><strong>🔴LIVE</strong></a></li>
+                    <li><a href="LIVE.html"><strong>🔴LIVE</strong></a></li>
                     <li><a href="">Our Team</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
             <img src="images/menu.png" class="menu-icon" onclick="togglemenu()">
@@ -26,7 +27,7 @@
 
         <div class="row">
             <div class="col-1">
-                <h2>KL - SAT<br> (SAT -2 LIVE)</h2>
+                <h2>KL - SAT<br>(Mission - 2)</h2>
                 <h3>Live Launch from KL Univeristy </h3>
                 <p>KL Deemed to be University</p>
                 <h4>TEAM KL-SAT</h4>
@@ -35,21 +36,41 @@
             <div class="col-2">
                 <img src="images/controller.png" class="controller">
                 <div class="color-box"></div>
-                <div class="add-btn">
-                    <img src="images/add.png" alt="">
-                    <p><small>Add To Cart</small></p>
-                </div>
             </div>
         </div>
-
-        <div class="social-links">
-            <img src="images/fb.png" alt="">
-            <img src="images/tw.png" alt="">
-            <img src="images/ig.png" alt="">
-        </div>
-
-    </div>
-
+        <h1>Our Missions</h1>
+    <div class="contain">
+            <div class="card" style="--clr:#009688;">
+                <div class="imgBx">
+                    <img src="images/KLLOGO.jpg">
+                </div>
+                <div class="content">
+                    <h2>KL SAT - 1</h2>
+                    <p>Satellite mission 1| KL SAT</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="card" style="--clr:#ff3e7f;">
+                <div class="imgBx">
+                    <img src="images/KLLOGO.jpg">
+                </div>
+                <div class="content">
+                    <h2>KL SAT - 2</h2>
+                    <p>Satellite mission 2| KL SAT</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="card" style="--clr:#03a9f4;">
+                <div class="imgBx">
+                    <img src="images/loo.png">
+                </div>
+                <div class="content">
+                    <h2>KL SAT - 3</h2>
+                    <p>Satellite mission 3| KL SAT</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            </div>
     <script>
         var menuList = document.getElementById("menuList");
 
