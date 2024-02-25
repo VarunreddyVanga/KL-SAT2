@@ -32,37 +32,45 @@
 body{
     background: linear-gradient(45deg,#ffffff,#c2e6e8);          
 }
-.youtube-container {
-	overflow: hidden;
-	width: 100%;
-	/* Keep it the right aspect-ratio */
-	aspect-ratio: 16/9;
-	/* No clicking/hover effects */
-	pointer-events: none;
-	
-	iframe {
-		/* Extend it beyond the viewport... */
-		width: 300%;
-		height: 100%;
-		/* ...and bring it back again */
-		margin-left: -100%;
-	}
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
-.containe{
-	overflow: hidden;
-	width: 100%;
-	/* Keep it the right aspect-ratio */
-	aspect-ratio: 16/9;
-	/* No clicking/hover effects */
-	pointer-events: none;
-	
-	iframe {
-		/* Extend it beyond the viewport... */
-		width: 300%;
-		height: 100%;
-		/* ...and bring it back again */
-		margin-left: -100%;
-	}
+.logo{
+    width: 150px;
+    cursor: pointer;
+    margin: 30px 0;
+}
+
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+nav ul li a:hover{
+    color: #e84a67;
+}
+.youtube-container {
+    display:flex;
 }
 p, span, li{
     color: var(--secondaryTextColor);
@@ -80,7 +88,7 @@ li{
 }
 
 #container--main{
-    max-width: 1050px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 1em;
 }
