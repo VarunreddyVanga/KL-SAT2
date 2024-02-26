@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>KL SAT | Projects</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="new.css">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KL-SAT | LAUNCH</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="live.css">
 </head>
-<body >
-    <section>
-        <div class="about-us">
-            <h1>Our Missions</h1>
-            <div class="wrapper">
-            <div class="content">
-                <h3>hi i am srivarun reddy</h3>
-                <p>this description was about kl sat 1 kasjdh kajsjhdf ksjbdbm blsahbdfm kbasdjlhbfm kbljashdbm kbjlsbdbfm bjbsbdfm .mn jlbjasdbfm jbvaushf </p>
-                <div class="button">
-                    <a href="">read more</a>
-                </div>
-                <div class="social">
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-twitter-f"></i></a>
-                    <a href=""><i class="fab fa-instagram-f"></i></a>
-                </div>
-            </div>
-        <div class="image-section">
-            <img src="images/KLLOGO.jpg">
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="images/KL-SAT.jpg" class="logo">
+            <nav>
+                <ul id="menuList">
+                    <li><a href="">Home</a></li>
+                    <li><a href="LIVE.html"><strong>🔴LIVE</strong></a></li>
+                    <li><a href="">Our Team</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <img src="images/menu.png" class="menu-icon" onclick="togglemenu()">
         </div>
     </div>
+    <div id="container--main">
+        <a href="index.html">&#x2190; Home</a>
+        <h1>🔴LIVE </h1>
+        <div class="line-break"></div>
+        <div class="youtube-container">
+        <iframe width = "100%"" height= "300px" src="https://www.youtube.com/embed/HGl5n8NkRvs?si=ZHpy-TjDH0RJ7GIX
+        &autoplay=1&loop=1&color=white&controls=1&modestbranding=1&playsinline=1&rel=0&enablejsapi=1" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+        gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="100%" height="300px" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="https://aprs.fi/info/VU2LWI-12"></iframe>
         </div>
-    </section>
-</body>
+        <iframe width="100%" height="100%" src="https://aprs.fi/VU2LWI-12"></iframe>
+        <iframe width="50%" height="300px" sandbox:src="https://aprsdirect.de/views/overview.php?sid=1620935"></iframe>
+    </div>
+    <script>
+        var menuList = document.getElementById("menuList");
+
+        menuList.style.maxHeight = "0px";
+
+        function togglemenu() {
+            if (menuList.style.maxHeight == "0px") {
+                menuList.style.maxHeight = "130px";
+            } else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+
+    </script>
+</body>    

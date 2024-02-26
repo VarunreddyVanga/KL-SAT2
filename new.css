@@ -8,10 +8,10 @@
 body{
     width:100%;
     min-height: 100vh;
-    background-color: #ffffff;
+    background-color: #fff; 
 }
 .about-us{
-    margin-top:200px;
+    margin-top:100px;
     width:100%;
     font-family: 'Poppins';
 }
@@ -42,7 +42,7 @@ body{
     width: 60%;
     float:left;
     text-align:left;
-    padding: 0px 30px;
+    padding: 0px 0px;
 }
 .content h3{
     color: #222;
@@ -64,7 +64,7 @@ body{
     padding: 10px 35px;
     text-decoration: none;
     letter-spacing: 1px;
-    font-size: 22px;
+    font-size: 20px;
     text-transform: uppercase;
 }
 .content .button a:hover{
@@ -105,6 +105,43 @@ body{
     max-width: 100%;
     height: auto;
 }
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 150px;
+    cursor: pointer;
+    margin: 30px 0;
+}
+
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+nav ul li a:hover{
+    color: #e84a67;
+}
 @media screen and (max-width: 900px){
     .about-us{
         width:100%;
@@ -135,5 +172,30 @@ body{
         float: none;
         width: 100%;
         margin-top: 25px;
+    }
+}
+@media (max-width:700px) {
+    nav ul{
+        width: 100%;
+        background: linear-gradient(#ff54a2, #ff575a);
+        position: absolute;
+        top: 75px;
+        right: 0;
+        z-index: 2;
+    }
+    nav ul li{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li a{
+        color: #fff;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menuList{
+        overflow: hidden;
+        transition: 0.5s;
     }
 }
