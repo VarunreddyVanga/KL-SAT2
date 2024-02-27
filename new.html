@@ -79,12 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const entry = data.entries[0];
 
             const missionName = document.createElement('h2');
-            missionName.textContent = `Mission: ${entry.callsign}`;
+            missionName.textContent = `Mission: ${entry.name}`;
             launchDetailsContainer.appendChild(missionName);
 
             const location = document.createElement('p');
             location.innerHTML = `<strong>Latitude:</strong> ${entry.lat}<br>`;
-            location.innerHTML += `<strong>Longitude:</strong> ${entry.lng}`;
+            location.innerHTML += `<strong>Longitude:</strong> ${entry.lng}<be>`;
             location.innerHTML += `<strong>Speed:</strong> ${entry.speed} km/h<br>`;
             location.innerHTML += `<strong>Altitude:</strong> ${entry.altitude} meters`;
             launchDetailsContainer.appendChild(location);
