@@ -18,7 +18,7 @@ app.get('/api/location', async (req, res) => {
         const data = await response.json();
 
         // Set CORS headers
-        res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5501');
+        res.header('Access-Control-Allow-Origin', 'https://varunreddyvanga.github.io/KL-SAT2/new.html');
         res.header('Access-Control-Allow-Methods', 'GET');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
 
