@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
+res.header('Access-Control-Allow-Origin', 'https://varunreddyvanga.github.io/KL-SAT2/new.html');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ app.use(cors());
 // API endpoint to fetch data from APRS API
 app.get('/api/location', async (req, res) => {
     const apiURL = 'https://api.aprs.fi/api/get?name=VU2LWI-12&what=loc&apikey=194964.xPjRJblFC7JwIN16&format=json';
+    res.header('Access-Control-Allow-Origin', 'https://varunreddyvanga.github.io/KL-SAT2/new.html');
 
     try {
         // Fetch data from the APRS API using node-fetch
