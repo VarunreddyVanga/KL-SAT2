@@ -3,124 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satellite Launch Live Panel</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .live-panel {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-        }
-
-        #map {
-            margin-top: 20px;
-            width: 80%;
-            max-width: 600px;
-            height: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    </style>
+    <title>APRS API Example</title>
 </head>
 <body>
+    <h1>APRS API Example</h1>
+    <p id="location">Latitude: <span id="latitude"></span>, Longitude: <span id="longitude"></span></p>
 
-<div class="live-panel">
-    <h1>Satellite Launch Live Panel</h1>
-    
+    <script>
+        // Function to fetch latitude and longitude from the proxy server
+        async function fetchLocation() {
+            const proxyURL = 'http://localhost:3000/api/location';
 
-    <!-- Satellite Data -->
-    <div id="launch-details"></div>
+            try {
+                // Fetch data from the proxy server
+                const response = await fetch(proxyURL);
+                const data = await response.json();
 
-    <!-- Live Location Map -->
-    <div id="map"></div>
-</div>
+                // Extract latitude and longitude from the API response
+                const latitude = data.entries[0].lat;
+                const longitude = data.entries[0].lng;
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-document.cookie = "yourCookieName=yourCookieValue; SameSite=None; Secure";
-document.addEventListener("DOMContentLoaded", function () {
-    const apiEndpoint = 'https://cors-anywhere.herokuapp.com/https://api.aprs.fi/api/get?name=VU2LWI-12&what=loc&apikey=194964.xPjRJblFC7JwIN16';
-    const launchDetailsContainer = document.getElementById('launch-details');
-    const mapContainer = document.getElementById('map');
-    let map;
-
-    function fetchData() {
-        fetch(apiEndpoint)
-            .then(response => response.json())
-            .then(data => {
-                displayLaunchDetails(data);
-                updateMap(data);
-            })
-            .catch(error => console.error('Error fetching data:', error))
-            .finally(() => {
-                // Schedule the next fetch after 10 seconds
-                setTimeout(fetchData, 10000);
-            });
-    }
-
-    function displayLaunchDetails(data) {
-        launchDetailsContainer.innerHTML = ''; // Clear previous content
-
-        if (data && data.entries && data.entries.length > 0) {
-            const entry = data.entries[0];
-
-            const missionName = document.createElement('h2');
-            missionName.textContent = `Mission: ${entry.name}`;
-            launchDetailsContainer.appendChild(missionName);
-
-            const location = document.createElement('p');
-            location.innerHTML = `<strong>Latitude:</strong> ${entry.lat}<br>`;
-            location.innerHTML += `<strong>Longitude:</strong> ${entry.lng}<be>`;
-            location.innerHTML += `<strong>Speed:</strong> ${entry.speed} km/h<br>`;
-            location.innerHTML += `<strong>Altitude:</strong> ${entry.altitude} meters`;
-            launchDetailsContainer.appendChild(location);
-        } else {
-            const noDataMessage = document.createElement('p');
-            noDataMessage.textContent = 'No data available.';
-            launchDetailsContainer.appendChild(noDataMessage);
-        }
-    }
-
-    function updateMap(data) {
-        if (data && data.entries && data.entries.length > 0) {
-            const entry = data.entries[0];
-
-            if (!map) {
-                // Create the map if it doesn't exist
-                map = L.map('map').setView([entry.lat, entry.lng], 13);
-
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors'
-                }).addTo(map);
-            } else {
-                // Update the existing map
-                map.setView([entry.lat, entry.lng], 13);
+                // Display the results on the webpage
+                document.getElementById('latitude').textContent = latitude;
+                document.getElementById('longitude').textContent = longitude;
+            } catch (error) {
+                console.error('Error fetching data from proxy server:', error);
             }
-
-            // Add a marker to the map
-            const marker = L.marker([entry.lat, entry.lng]).addTo(map);
-            marker.bindPopup(`<b>Mission:</b> ${entry.callsign}<br/><b>Location:</b> ${entry.lat}, ${entry.lng}`).openPopup();
         }
-    }
 
-    // Start fetching data
-    fetchData();
-});
-</script>
-
+        // Call the fetchLocation function when the page loads
+        window.onload = fetchLocation;
+    </script>
 </body>
 </html>
