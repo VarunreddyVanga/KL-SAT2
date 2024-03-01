@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
 
             try {
                 // Fetch data from the proxy server
-                const response = await fetch(proxyURL);
+                const response = await fetch(proxyURL,{mode:'no-cors'});
                 const data = await response.json();
 
                 // Extract latitude and longitude from the API response
