@@ -10,7 +10,7 @@
 body{
     width:100%;
     min-height: 100vh;
-    background-color: #fff  
+    background: linear-gradient(#ffffff, #bbefff);
 }
 .container{
     width: 100%;
@@ -25,7 +25,7 @@ body{
     align-items: center;
 }
 .logo{
-    width: 150px;
+    width: 170px;
     cursor: pointer;
     margin: 30px 0;
 }
@@ -44,7 +44,7 @@ nav{
 nav ul li{
     list-style: none;
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 40px;
 }
 
 nav ul li a{
@@ -54,7 +54,7 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color: #e84a67;
+    color: #4acee8;
 }
 
 .row{
@@ -98,7 +98,7 @@ button{
     background: linear-gradient(to right , #ffaa83, #ff8484);
     cursor: pointer;
     border-radius: 6px;
-    transition: width 0.5s;
+    transition: width 0.6s;
 }
 
 button img{
@@ -123,19 +123,19 @@ button:hover{
     height: 50%;
     background: linear-gradient(#46edff, #60c5ff);
     position: absolute;
-    left: -40px;
+    left: -35px;
     top: 8px;
     border-radius: 20px;
 }
 
 .col-2{
     position: relative;
-    flex-basis: 60%;
+    flex-basis: 50%;
     display: flex;
     align-items: center;
 }
 .col-2 .controller{
-    width: 90%;
+    width: 120%;
 }
 
 .col-2 .color-box{
@@ -145,9 +145,9 @@ button:hover{
     background: linear-gradient(#46edff, #60afff);
     border-radius: 20px 0 0 20px;
     height: 100%;
-    width: 80%;
+    width: 95%;
     z-index: -1;
-    transform: translateX(150px);
+    transform: translateX(200px);
 }
 
 .add-btn img{
@@ -162,7 +162,7 @@ button:hover{
 }
 
 .social-links img{
-    height: 13px;
+    height: 15px;
     margin: 20px;
     cursor: pointer;
 }

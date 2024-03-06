@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live API Data Fetching</title>
+</head>
+<body>
+
+<div id="data-container">
+  <!-- Data will be displayed here -->
+</div>
+
+<script>
+// Function to fetch and display data
+async function fetchData() {
+  try {
+    const response = await fetch('/api/data');
+    const data = await response.json();
+
+    // Update the data in the HTML container
+    document.getElementById('data-container').innerText = JSON.stringify(data, null, 2);
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+  }
+}
+
+// Initial fetch
+fetchData();
+
+// Set up interval to fetch data every 2 seconds
+const fetchInterval = setInterval(fetchData, 2000);
+
+// Uncomment the following line if you want to stop fetching after a certain duration (e.g., 10 seconds)
+// setTimeout(() => clearInterval(fetchInterval), 10000);
+</script>
+
+</body>
+</html>
