@@ -108,7 +108,7 @@ li{
 #wrapper--hero{
     display: flex;
     align-items: center;
-    gap: 4em;
+    gap: 0.5em;
 }
 #wrapper--ero{
     align-items: center;
