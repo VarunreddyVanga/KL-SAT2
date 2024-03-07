@@ -25,10 +25,7 @@ fetchData();
 setInterval(fetchData, 3600000); // Fetch data every hour
 
 // Enable CORS
-app.use(cors({
-  origin: ['http://127.0.0.1:5501', 'https://varunreddyvanga.github.io/KL-SAT2/api.html'],
-}));
-
+app.use(cors());
 
 app.get('/api/data', (req, res) => {
   if (cachedData) {
