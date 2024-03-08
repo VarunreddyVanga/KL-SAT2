@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="live.css">
         <link rel="styelsheet" href="styleg.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     </head>
     <body>
     <div id="container--main">
@@ -28,9 +30,71 @@
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </section>
-        <iframe width="100%" height="600px" src=""></iframe>
+        <section id="wrapper--hero">
+            <div id="map" style="width: 50%; height: 400px;"></div>
+            <section id="wrapper--hero">
+            <div id="dataDisplay" style="font-weight: 400;"></div></section>
+        </section>
         <iframe width="100%" height="700px" src="https://aprsdirect.de/views/overview.php?id=1436962&imperialUnits=0" scrolling="0"></iframe>
         </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function initMap() {
+        const initialLatLng = [37.7749, -122.4194];
+        const map = L.map('map').setView(initialLatLng, 12);
+
+        // Add a TileLayer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        function updateMap(apiData) {
+          if (apiData && apiData.entries && apiData.entries.length > 0) {
+            const latestEntry = apiData.entries[0];
+            const newLatLng = [parseFloat(latestEntry.lat), parseFloat(latestEntry.lng)];
+
+            // Update map center and add a marker
+            map.setView(newLatLng);
+
+            // Clear existing markers (if any)
+            if (map.markers) {
+              map.markers.forEach(marker => marker.removeFrom(map));
+            }
+
+            // Add a new marker at the updated coordinates
+            const marker = L.marker(newLatLng).addTo(map);
+            map.markers = [marker];
+
+            // Display data in the text area
+            const dataDisplay = document.getElementById('dataDisplay');
+            dataDisplay.innerHTML = `
+              <p>Latitude: ${latestEntry.lat}</p>
+              <p>Longitude: ${latestEntry.lng}</p>
+              <p>Timestamp: ${latestEntry.timestamp}</p>
+            `;
+          }
+        }
+
+        function fetchData() {
+          fetch('http://localhost:3000/api/data')
+            .then(response => response.json())
+            .then(data => {
+              updateMap(data);
+            })
+            .catch(error => {
+              console.error('Error fetching live data:', error);
+            });
+        }
+
+        fetchData();
+
+        // Schedule periodic updates (every 10 seconds in this example)
+        setInterval(fetchData, 10000); // Fetch data every 10 seconds
+      }
+
+      initMap();
+    });
+  </script>
 </body>
 </html>
