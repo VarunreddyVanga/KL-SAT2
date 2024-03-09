@@ -1,51 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=visualization"></script>
-</head>
-<body>
-
-<div id="map" style="height: 400px;"></div>
+<!-- ... your HTML code ... -->
 
 <script>
-    // Replace 'YOUR_API_KEY' with your APRS API key
-    const aprsApiKey = "194964.xPjRJblFC7JwIN16";
-    const callsign = "VU2LWI-12";
+  function fetchLocation() {
+      const apiUrl = "https://varunreddyvanga.github.io/KL-SAT2/api.html/api_proxy.php"; // Replace with the correct URL
 
-    function fetchData() {
-        fetch(`https://api.aprs.fi/api/get?name=${callsign}&what=loc&apikey=${aprsApiKey}`)
-            .then(response => response.json())
-            .then(data => {
-                const { lat, lng } = data.entries[0].latlng;
-                updateMap(lat, lng);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
+      fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+              // Extract relevant information from the response
+              const { name, latitude, longitude, speed, course, timestamp } = data.entries[0];
 
-    function updateMap(latitude, longitude) {
-        const mapOptions = {
-            center: { lat: latitude, lng: longitude },
-            zoom: 10
-        };
+              // Display the information on the web page
+              const locationInfo = document.getElementById("locationInfo");
+              locationInfo.innerHTML = `
+                  <p>Name: ${name}</p>
+                  <p>Latitude: ${latitude}</p>
+                  <p>Longitude: ${longitude}</p>
+                  <p>Speed: ${speed} km/h</p>
+                  <p>Course: ${course} degrees</p>
+                  <p>Timestamp: ${timestamp}</p>
+              `;
+          })
+          .catch(error => {
+              console.error("Error fetching location:", error);
+          });
+  }
 
-        const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-        const marker = new google.maps.Marker({
-            position: { lat: latitude, lng: longitude },
-            map: map,
-            title: callsign
-        });
-    }
-
-    // Fetch data and update map every 5 seconds
-    setInterval(fetchData, 5000);
-
-    // Initial fetch and map setup
-    fetchData();
+  window.onload = fetchLocation;
 </script>
 
-</body>
-</html>
+<!-- ... your HTML code ... -->

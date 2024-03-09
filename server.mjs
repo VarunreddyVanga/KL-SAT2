@@ -1,40 +1,24 @@
+// server.mjs
 import express from 'express';
 import fetch from 'node-fetch';
-import cors from 'cors';
-const express = require('express');
+
 const app = express();
 const port = 3000;
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server running on http://0.0.0.0:${port}`);
+app.use(express.static('public'));
 
-let cachedData = null;
-const apiKey = '194964.xPjRJblFC7JwIN16';
+app.get('/api/data', async (req, res) => {
+  const apiKey = '194964.xPjRJblFC7JwIN16';
+  const apiUrl = `https://api.aprs.fi/api/get?name=VU2LWI-12&what=loc&apikey=${apiKey}`;
 
-// Fetch data initially and then schedule periodic updates
-async function fetchData() {
   try {
-    const response = await fetch(`https://api.aprs.fi/api/get?name=VU2LWI-12&what=loc&apikey=${apiKey}`);
-    cachedData = await response.json();
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    res.json(data);
   } catch (error) {
     console.error('Error fetching data from API:', error);
-  }
-}
-
-// Fetch data initially
-fetchData();
-
-// Schedule periodic updates (every hour in this example)
-setInterval(fetchData, 3600000); // Fetch data every hour
-
-// Enable CORS
-app.use(cors());
-
-app.get('/api/data', (req, res) => {
-  if (cachedData) {
-    res.json(cachedData);
-  } else {
-    res.status(500).json({ error: 'Data not available' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
