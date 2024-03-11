@@ -1,8 +1,9 @@
 <?php
-header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: text/csv');
 
-$url = 'https://api.aprs.fi/api/get?name=VU2LWI-12&what=loc&apikey=194964.xPjRJblFC7JwIN16&format=json';
-$response = file_get_contents($url);
+$sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLRnCBrA9vF7iBYoYy5auhrtM2f2xBuLngC9e9gd8uquoAdDO6W2b3eOuYBwTGLU0DkrfZIweQ4NDK/pub?gid=1&single=true&output=csv";
+$data = file_get_contents($sheetURL);
 
-echo $response;
+echo $data;
 ?>
