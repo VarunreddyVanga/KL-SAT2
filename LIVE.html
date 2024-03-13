@@ -7,9 +7,21 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="live.css">
-        <link rel="styelsheet" href="styleg.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <style>
+            .iframeContainer{
+                position: relative;
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+            }
+            .iframeContent{
+                position: absolute;
+                top: -720px;
+                left: -417px;
+                width: 1500px;
+                height: 2000px;
+            }
+        </style>
     </head>
     <body>
     <div id="container--main">
@@ -19,106 +31,24 @@
         <script src="https://cdn.logwork.com/widget/countdown.js"></script>
         <script src="https://cdn.logwork.com/widget/countdown.js"></script>
         <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-        <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="flip3" data-timezone="Asia/Kolkata" data-textcolor="#2b2b2b" data-date="2024-03-08 18:40" data-background="#99ebff" data-digitscolor="#1a1a1a" data-unitscolor="#2e2e2e">Launch Timer</a>
+        <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="flip3" data-timezone="Asia/Kolkata" data-textcolor="#2b2b2b" data-date="2024-03-13 18:40" data-background="#99ebff" data-digitscolor="#1a1a1a" data-unitscolor="#2e2e2e">Launch Timer</a>
         </section>
-        <iframe width="100%" height ="400px" src="https://kluniversityin-my.sharepoint.com/:x:/g/personal/2100049015_kluniversity_in/EXjPySS5KRFAnFEf-eHdVCsB50HyKPnfAAMSNkFUcZoIUw?e=Slz61L"></iframe>
         <div id="frames">
         <section id="wrapper--hero" class="section--page">
-            <iframe width="100%" height="350px" src="https://www.youtube.com/embed/HGl5n8NkRvs?si=-Vd67m5u8ToR2Ndy" title="YouTube video player" 
+            <iframe width="100%" height="420px" src="https://www.youtube.com/embed/HGl5n8NkRvs?si=-Vd67m5u8ToR2Ndy" title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
-            <iframe width="100%" height="350px" src="https://www.youtube.com/embed/HGl5n8NkRvs?si=-Vd67m5u8ToR2Ndy" title="YouTube video player" 
+            <iframe width="100%" height="420px" src="https://www.youtube.com/embed/HGl5n8NkRvs?si=-Vd67m5u8ToR2Ndy" title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </section>
-        <section id="wrapper--hero">
-            <div id="map" style="width: 100%; height: 400px;"></div>
-            <section id="wrapper--hero">
-            <div id="dataDisplay" style="font-weight: 400;"></div></section>
-        </section>
-        <iframe width="100%" height="700px" src="" scrolling="0"></iframe>
+        <section id="wrapper-hero" class="section--page">
+        <div class="iframeContainer">
+        <iframe src="https://aprsdirect.de/views/overview.php?sid=1458596" scrolling="0" class="iframeContent"></iframe>
         </div>
+        </section>
+        <iframe width="100%" height="500px" src="https://aprsdirect.de/views/overview.php?sid=1458596&zoom=12"></iframe>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          let lastKnownLocation = {
-            coordinates: [16.44225, 80.62420], // Default location
-            timestamp: new Date().toLocaleString()
-          };
-    
-          function initMap() {
-            const map = L.map('map').setView(lastKnownLocation.coordinates, 12);
-    
-            // Add a TileLayer to the map
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-    
-            function updateMap(apiData) {
-              if (apiData && apiData.entries && apiData.entries.length > 0) {
-                const latestEntry = apiData.entries[0];
-                const newLatLng = [parseFloat(latestEntry.lat), parseFloat(latestEntry.lng)];
-    
-                // Update map center and add a marker
-                map.setView(newLatLng);
-    
-                // Clear existing markers (if any)
-                if (map.markers) {
-                  map.markers.forEach(marker => marker.removeFrom(map));
-                }
-    
-                // Add a new marker at the updated coordinates
-                const marker = L.marker(newLatLng).addTo(map);
-                map.markers = [marker];
-    
-                // Update lastKnownLocation with timestamp
-                lastKnownLocation = {
-                  coordinates: newLatLng,
-                  timestamp: new Date().toLocaleString()
-                };
-    
-                // Display data in the text area
-                const dataDisplay = document.getElementById('dataDisplay');
-                dataDisplay.innerHTML = `
-                  <p>Last Updated Location:</p>
-                  <p>Latitude: ${lastKnownLocation.coordinates[0]}</p>
-                  <p>Longitude: ${lastKnownLocation.coordinates[1]}</p>
-                  <p>Last Updated: ${lastKnownLocation.timestamp}</p>
-                `;
-              }
-            }
-    
-            function fetchData() {
-              fetch('http://localhost:3000/api/data')
-                .then(response => response.json())
-                .then(data => {
-                  updateMap(data);
-                })
-                .catch(error => {
-                  console.error('Error fetching live data:', error);
-    
-                  // Display last known location and data if the server is offline
-                  map.setView(lastKnownLocation.coordinates);
-    
-                  const dataDisplay = document.getElementById('dataDisplay');
-                  dataDisplay.innerHTML = `
-                    <p><strong>Geo Server from KL-Sat was OFFLINE</strong></p>
-                    <p>Last Known Location:</p>
-                    <p>Latitude: ${lastKnownLocation.coordinates[0]}</p>
-                    <p>Longitude: ${lastKnownLocation.coordinates[1]}</p>
-                    <p>Last Updated: ${lastKnownLocation.timestamp}</p>
-                  `;
-                });
-            }
-    
-            fetchData();
-    
-            // Schedule periodic updates (every 10 seconds in this example)
-            setInterval(fetchData, 10000); // Fetch data every 10 seconds
-          }
-    
-          initMap();
-        });
-      </script>
+    </div>
 </body>
 </html>
