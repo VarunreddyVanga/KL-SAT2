@@ -33,6 +33,12 @@ body{
     background-color: var(--mainBgColor);            
 }
 
+h2{
+    padding-top:0.9em;
+    color:aqua;
+    font-size: 1.5em;
+}
+
 p, span, li{
     color: var(--secondaryTextColor);
     font-size: 1em;
@@ -133,7 +139,7 @@ li{
 
 .line-break{
     background-color: var(--mainBorderColor);
-    height: 1px;
+    height: 1.5px;
 }
 
 #wrapper--techstack__items{
