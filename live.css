@@ -32,7 +32,15 @@
 body{
     width:100%;
     min-height: 100vh;
-    background: linear-gradient(#ffffff, #c5efff);
+    background: var(--mainBgColor-dark)
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 .container{
     width: 100%;
@@ -107,7 +115,6 @@ li{
 }
 #wrapper--hero{
     display: flex;
-    align-items: center;
     gap: 0.5em;
 }
 #wrapper--ero{
