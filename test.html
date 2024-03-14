@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>KL-SAT2|LAUNCH</title>
+        <title>KL SAT | 🔴LIVE</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="test.css">
+        <link rel="stylesheet" href="live.css">
         <style>
             .iframeContainer{
                 position: relative;
@@ -24,28 +24,35 @@
         </style>
     </head>
     <body>
-        <h1>KL-SAT 2</h1>
-        <div id="container--main">
-            <div class="line-break"></div>
-            <h2>GROUND VIEW PANEL</h2>
-            <section id="wrapper--hero" class="section--page">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ON56NH0B5IU?si=JYDhUiBNn8UXyLoP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/D7dl8rLjIno?si=AmDDeTZkp_9-ZDX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/tfCj6J5X-AM?si=yq6dgbZS5nxnalt-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </section>
-            <p>⚠️Caution: Refresh the map in case of error in loading with live map module</p>
-            <div class="iframeContainer" id="iframe">
-                <iframe id="map"src="https://aprsdirect.de/views/overview.php?sid=1458596" scrolling="0" class="iframeContent"></iframe>
-            </div>
-            <setion id="wrapper--aprs">
-            <div id="iframe">
-            <iframe width="100%" height="800px" src="https://aprsdirect.de/views/overview.php?id=1458596&imperialUnits=0" scrolling="0"></iframe>
-            </div>
+    <div id="container--main">
+        <h1>KL-SAT 2|LAUNCH</h1>
+        <section class="timer">
+        <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+        <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+        <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+        <a href="https://logwork.com/countdown-timer" class="countdown-timer" data-style="flip3" data-timezone="Asia/Kolkata" data-textcolor="#fff" data-date="2024-03-13 18:40" data-background="#99ebff" data-digitscolor="#1a1a1a" data-unitscolor="#2e2e2e">Launch Timer</a>
         </section>
-        <p>⚠️Caution: The site map view and Overview module may disconnect in case no response for long time<br>
-            <ul><li><strong>Kinldy refresh the page in case of no disconnected to the server</strong></li></ul></p>
-        <div class="line-break"></div>
-        <h2>DATA VIEW PANEL</h2>
+        <div id="frames">
+        <section id="wrapper--hero" class="section--page">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ON56NH0B5IU?si=JYDhUiBNn8UXyLoP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ON56NH0B5IU?si=JYDhUiBNn8UXyLoP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/D7dl8rLjIno?si=AmDDeTZkp_9-ZDX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </section>
+        <section id="wrapper--hero" class="section--page">
+        <div class="iframeContainer">
+            <iframe id="map"src="https://aprsdirect.de/views/overview.php?sid=1458596" scrolling="0" class="iframeContent"></iframe>
         </div>
-    </body>
+        </section>
+        <section id="wrapper--hero" class="section--page">
+            <iframe width="100%" height="800px" src="https://aprsdirect.de/views/overview.php?id=1458596&imperialUnits=0"></iframe>
+        </section>
+    </div>
+    </div>
+    <script> 
+        function reload() { 
+            document.getElementById('map').src += ''; 
+        } 
+        btn.onclick = reload; 
+    </script> 
+</body>
 </html>
