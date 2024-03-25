@@ -8,7 +8,7 @@
     --mainBgColor-light:rgb(249, 250,251);
 
     --mainTextColor-dark:#fff;
-    --secondaryTextColor-dark:#adb0b1;
+    --secondaryTextColor-dark:#bcbcbc;
     --mainLinkColor-dark:rgb(30, 190,214);
     --mainBorderColor-dark:#2b3031;
     --mainBgColor-dark:#131415;
@@ -23,7 +23,7 @@
 
 *{
     font-family: 'Readex Pro';
-    line-height: 1.5em;
+    line-height: 2em;
     box-sizing: border-box;
     color: var(--mainTextColor);
 
@@ -33,10 +33,15 @@ body{
     background-color: var(--mainBgColor);            
 }
 
+h3{
+    color:aqua;
+    font-size: 1.8em;
+}
+
 h2{
     padding-top:0.9em;
     color:aqua;
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 p, span, li{
@@ -68,15 +73,13 @@ li{
 #wrapper--hero{
     display: flex;
     align-items: center;
-    gap: 1.5em;
+    gap: 1em;
 }
 #wrapper--aprs{
     padding-top: 1.5em;
     padding-bottom: 1.5em;
     align-items: center;
     gap: 1.5em;
-    border: 2px solid rgb(14, 14, 14);
-    border-radius: 25px;
 }
 
 #bio, a{
@@ -89,10 +92,8 @@ li{
 }
 
 #profile-pic{
-    width: 170px;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 50%;
+    margin-left: 3%;
+    height: 110px;
 }
 
 #email{

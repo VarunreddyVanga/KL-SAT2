@@ -173,12 +173,13 @@ button:hover{
 
 @media (max-width:700px) {
     nav ul{
-        width: 100%;
-        background: linear-gradient(#ff54a2, #ff575a);
+        width: 98%;
+        background: linear-gradient( #ffaa83, #ff8484);
         position: absolute;
-        top: 75px;
+        top: 95px;
         right: 0;
         z-index: 2;
+        border-radius: 8px;
     }
     nav ul li{
         display: block;
